@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  rabbitmq:
+    hostname: rabbitmq
+    container_name: RabbitMQ-Test
+    image: rabbitmq:3.11.0-management-alpine
+    # environment:
+      # - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.conf
+    volumes:
+     - ./custom.conf:/etc/rabbitmq/conf.d/custom.conf
+     - ./definitions.json:/etc/rabbitmq/definitions.json
+    ports:
+      - "15673:15672"
